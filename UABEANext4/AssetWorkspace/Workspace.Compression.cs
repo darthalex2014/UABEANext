@@ -29,15 +29,41 @@ public partial class Workspace
             Directory.CreateDirectory(outputDirectory);
         }
 
-        using MemoryStream uncompressedBundleStream = new();
-        WriteBundleFile(bundleItem, uncompressedBundleStream);
-        uncompressedBundleStream.Position = 0;
+        // Используем временный файл вместо MemoryStream,
+        // чтобы поддерживать бандлы размером более 2 ГБ
+        string tempPath = Path.Combine(
+            outputDirectory ?? Path.GetTempPath(),
+            "~compress_temp_" + Path.GetRandomFileName());
 
-        AssetBundleFile bundleToPack = new();
-        bundleToPack.Read(new AssetsFileReader(uncompressedBundleStream));
+        try
+        {
+            using (FileStream uncompressedBundleStream = new(
+                tempPath, FileMode.Create, FileAccess.ReadWrite,
+                FileShare.None, 81920, FileOptions.DeleteOnClose))
+            {
+                WriteBundleFile(bundleItem, uncompressedBundleStream);
+                uncompressedBundleStream.Position = 0;
 
-        using FileStream fs = new(outputPath, FileMode.Create, FileAccess.Write, FileShare.Read);
-        using AssetsFileWriter writer = new(fs);
-        bundleToPack.Pack(writer, compressionType, true, progress);
+                AssetBundleFile bundleToPack = new();
+                bundleToPack.Read(new AssetsFileReader(uncompressedBundleStream));
+
+                using FileStream fs = new(outputPath, FileMode.Create, FileAccess.Write, FileShare.Read);
+                using AssetsFileWriter writer = new(fs);
+                bundleToPack.Pack(writer, compressionType, true, progress);
+            }
+        }
+        finally
+        {
+            // На случай, если FileOptions.DeleteOnClose не сработал
+            try
+            {
+                if (File.Exists(tempPath))
+                    File.Delete(tempPath);
+            }
+            catch
+            {
+                // Игнорируем — файл уже удалён или будет удалён ОС
+            }
+        }
     }
 }
