@@ -6,6 +6,7 @@ using System.IO;
 using static System.FormattableString;
 
 namespace UABEANext4.Logic.ImportExport;
+
 public class AssetExport
 {
     private readonly Stream _stream;

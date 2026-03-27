@@ -6,6 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UABEANext4", "UABEANext4\UABEANext4.csproj", "{DE00D8E3-B8F4-4CDA-AEAD-8F72A7719339}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UABEANext4.Desktop", "UABEANext4.Desktop\UABEANext4.Desktop.csproj", "{4AD8576E-DDC9-4604-8561-9EF0EEF19C7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5738C3F7-0158-400F-A79A-24DF2F24E00E} = {5738C3F7-0158-400F-A79A-24DF2F24E00E}
+		{5D9A224B-E480-4024-B66A-CE0C9BBA5609} = {5D9A224B-E480-4024-B66A-CE0C9BBA5609}
+		{70219BCB-139C-438B-A302-159E9944338B} = {70219BCB-139C-438B-A302-159E9944338B}
+		{BFF01774-91E3-4F1A-801B-AE8BC5FCBDEA} = {BFF01774-91E3-4F1A-801B-AE8BC5FCBDEA}
+		{E672D051-E9AE-4880-96E5-A91CB6649B29} = {E672D051-E9AE-4880-96E5-A91CB6649B29}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TexturePlugin", "TexturePlugin\TexturePlugin.csproj", "{E672D051-E9AE-4880-96E5-A91CB6649B29}"
 EndProject
@@ -18,6 +25,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextAssetPlugin", "TextAssetPlugin\TextAssetPlugin.csproj", "{BFF01774-91E3-4F1A-801B-AE8BC5FCBDEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeshPlugin", "MeshPlugin\MeshPlugin.csproj", "{5D9A224B-E480-4024-B66A-CE0C9BBA5609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET", "Libraries\AssetsTools.NET\AssetTools.NET\AssetsTools.NET.csproj", "{8111D585-215B-8B46-5CBF-313905EEE53D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET.MonoCecil", "Libraries\AssetsTools.NET\AssetsTools.NET.MonoCecil\AssetsTools.NET.MonoCecil.csproj", "{276A5064-EB49-9D69-37FE-BB9C637902B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET.Texture", "Libraries\AssetsTools.NET\AssetsTools.NET.Texture\AssetsTools.NET.Texture.csproj", "{07C77B92-E2C4-7590-81DE-B473F3C04A61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET.Cpp2IL", "Libraries\AssetsTools.NET\AssetsTools.NET.Cpp2IL\AssetsTools.NET.Cpp2IL.csproj", "{7D557DF1-F7CA-7A7D-89AF-2E9916C1DA33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +72,22 @@ Global
 		{5D9A224B-E480-4024-B66A-CE0C9BBA5609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9A224B-E480-4024-B66A-CE0C9BBA5609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9A224B-E480-4024-B66A-CE0C9BBA5609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8111D585-215B-8B46-5CBF-313905EEE53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8111D585-215B-8B46-5CBF-313905EEE53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8111D585-215B-8B46-5CBF-313905EEE53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8111D585-215B-8B46-5CBF-313905EEE53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276A5064-EB49-9D69-37FE-BB9C637902B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276A5064-EB49-9D69-37FE-BB9C637902B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276A5064-EB49-9D69-37FE-BB9C637902B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276A5064-EB49-9D69-37FE-BB9C637902B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C77B92-E2C4-7590-81DE-B473F3C04A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C77B92-E2C4-7590-81DE-B473F3C04A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C77B92-E2C4-7590-81DE-B473F3C04A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C77B92-E2C4-7590-81DE-B473F3C04A61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D557DF1-F7CA-7A7D-89AF-2E9916C1DA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D557DF1-F7CA-7A7D-89AF-2E9916C1DA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D557DF1-F7CA-7A7D-89AF-2E9916C1DA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D557DF1-F7CA-7A7D-89AF-2E9916C1DA33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
